@@ -28,3 +28,4 @@ jobs:
           erg --version
           curl -L https://github.com/erg-lang/the-erg-book/raw/main/replace_links.er | erg --dump-as-pyc
           curl -L https://github.com/mtshiba/ergup/raw/main/ergup.er | erg --dump-as-pyc
+          erg --dump-as-pyc dismore.er

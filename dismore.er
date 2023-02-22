@@ -1,0 +1,18 @@
+dis = pyimport "dis"
+sys = pyimport "sys"
+
+dismore! filename: Str =
+    c = pycompile open!(filename, "r").read!(), filename, "exec"
+    show_code_info! c
+
+show_code_info!(c): NoneType =
+    print! dis.code_info c
+    print! "Code:"
+    dis.dis! c
+    for! c.co_consts, const =>
+        match! const:
+            (_c: Code) => show_code_info! _c
+            _ => None
+
+if! __name__ == "__main__", do!:
+    dismore! sys.argv[1]
