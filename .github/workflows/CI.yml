@@ -26,6 +26,7 @@ jobs:
       - name: Run script
         run: |
           erg --version
+          curl -L https://raw.githubusercontent.com/erg-lang/erg/main/doc/scripts/sync_to_translation_status.er | erg --dump-as-pyc
           curl -L https://github.com/erg-lang/the-erg-book/raw/main/replace_links.er | erg --dump-as-pyc
           curl -L https://github.com/mtshiba/ergup/raw/main/ergup.er | erg --dump-as-pyc
           erg --dump-as-pyc dismore.er
