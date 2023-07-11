@@ -23,7 +23,6 @@ jobs:
           git clone https://github.com/erg-lang/erg
           cd erg
           cargo install --path . --debug
-          cargo test --features large_thread -- --nocapture --include-ignored
       - name: Run script
         run: |
           erg --version
