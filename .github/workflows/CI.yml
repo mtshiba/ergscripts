@@ -22,7 +22,7 @@ jobs:
         run: |
           git clone https://github.com/erg-lang/erg
           cd erg
-          cargo install --path . --debug
+          cargo install --path . --debug --features large_thread
       - name: Run script
         run: |
           erg --version
@@ -59,10 +59,7 @@ jobs:
         run: |
           git clone https://github.com/erg-lang/erg
           cd erg
-          cargo install --path . --debug
-      - name: Set up tools (gtimeout)
-        run: |
-          brew install coreutils
+          cargo install --path . --debug --features large_thread
       - name: Set up Poise & Run
         run: |
-          gtimeout 30s erg src/main.er
+          erg src/main.er
