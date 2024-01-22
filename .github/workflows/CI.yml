@@ -60,6 +60,7 @@ jobs:
           git clone https://github.com/erg-lang/erg
           cd erg
           cargo install --path . --debug --features large_thread
+          echo "ERG_PATH=/home/runner/.erg" >> $GITHUB_ENV
       - name: Set up Poise & Run
         run: |
           erg src/main.er
