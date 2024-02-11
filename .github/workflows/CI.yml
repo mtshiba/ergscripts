@@ -22,6 +22,7 @@ jobs:
         run: |
           git clone https://github.com/erg-lang/erg
           cd erg
+          rustup update stable
           cargo install --path . --debug --features large_thread
       - name: Run script
         run: |
@@ -59,6 +60,7 @@ jobs:
         run: |
           git clone https://github.com/erg-lang/erg
           cd erg
+          rustup update stable
           cargo install --path . --debug --features large_thread
           echo "ERG_PATH=/home/runner/.erg" >> $GITHUB_ENV
       - name: Set up Poise & Run
