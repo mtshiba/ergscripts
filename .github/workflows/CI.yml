@@ -24,6 +24,7 @@ jobs:
           cd erg
           rustup update stable
           cargo install --path . --debug --features large_thread
+          echo "ERG_PATH=/home/runner/.erg" >> $GITHUB_ENV
       - name: Run script
         run: |
           erg --version
