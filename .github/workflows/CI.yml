@@ -44,7 +44,8 @@ jobs:
           erg trans ergup.er
           echo y | python3 ergup.py
   poise:
-    runs-on: macos-latest
+    # M1 Mac (macos-latest) doesn't support Python 3.7~3.9
+    runs-on: macos-13
     strategy:
       fail-fast: false
       matrix:
