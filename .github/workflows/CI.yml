@@ -29,14 +29,14 @@ jobs:
       - name: Run script
         run: |
           erg --version
-          erg --dump-as-pyc dismore.er
+          erg compile dismore.er
           curl -LO https://github.com/erg-lang/erg/raw/main/doc/scripts/mylib.py
           curl -LO https://github.com/erg-lang/erg/raw/main/doc/scripts/mylib.d.er
-          curl -L https://github.com/erg-lang/erg/raw/main/doc/scripts/sync_to_translation_status.er | erg --dump-as-pyc
+          curl -L https://github.com/erg-lang/erg/raw/main/doc/scripts/sync_to_translation_status.er | erg compile
 
-          curl -L https://github.com/erg-lang/the-erg-book/raw/main/replace_links.er | erg --dump-as-pyc
+          curl -L https://github.com/erg-lang/the-erg-book/raw/main/replace_links.er | erg compile
           curl -LO https://github.com/mtshiba/ergup/raw/main/ergup.er
-          erg --dump-as-pyc ergup.er
+          erg compile ergup.er
           echo y | python3 ergup.pyc
       - name: Run ergup.py
         if: ${{ matrix.python-version == '3.11' || matrix.python-version == '3.10' }}
