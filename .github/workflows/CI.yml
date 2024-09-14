@@ -23,6 +23,12 @@ jobs:
         run: |
           git clone https://github.com/erg-lang/erg
           cd erg
+          echo "branch: ${{ github.event.client_payload.branch }}"
+          if [ -z "${{ github.event.client_payload.branch }}" ]; then
+            git checkout main
+          else
+            git checkout ${{ github.event.client_payload.branch }}
+          fi
           rustup update stable
           cargo install --path . --debug --features large_thread
           echo "ERG_PATH=/home/runner/.erg" >> $GITHUB_ENV
